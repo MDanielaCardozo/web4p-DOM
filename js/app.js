@@ -76,10 +76,15 @@ const obtenerNombre = (e) => {
   /* parrafos[5].textContent = parrafos[5].textContent + input[1].value; */
   parrafos[5].textContent += input[1].value;
   formulario.reset();
-  
-  
-  
-  
+}
+
+const cambiarTema = () => {
+
+  const html = document.documentElement;
+  const temaActual = html.getAttribute("data-bs-theme");
+  console.log(temaActual);
+
+  html.setAttribute("data-bs-theme", temaActual === "dark" ? "light" : "dark");
 }
 
 
@@ -91,9 +96,13 @@ console.log(btnAmarillo);
 
 const formulario = document.querySelector("#formNombre");
 
+const btnCambiarTema = document.querySelector(".btn-dark")
+console.log(btnCambiarTema);
+
 
 btnRojo.addEventListener("click", ocultarParrafo);
 btnAmarillo.addEventListener("click", borrarParrafo);
-formulario.addEventListener("submit", obtenerNombre)
+formulario.addEventListener("submit", obtenerNombre);
+btnCambiarTema.addEventListener("click", cambiarTema);
 
 
