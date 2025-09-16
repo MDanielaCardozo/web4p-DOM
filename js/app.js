@@ -62,6 +62,26 @@ const borrarParrafo = () => {
   
 }
 
+const obtenerNombre = (e) => {
+
+  e.preventDefault();
+  console.log(e);
+  console.log('desde la funcion obtenerNombre');
+
+  const input = document.querySelectorAll(".form-control");
+  console.log(input[1].value);
+  const parrafos = document.querySelectorAll('p');
+  console.log(parrafos[5]);
+
+  /* parrafos[5].textContent = parrafos[5].textContent + input[1].value; */
+  parrafos[5].textContent += input[1].value;
+  formulario.reset();
+  
+  
+  
+  
+}
+
 
 const btnRojo = document.querySelector(".btn-danger");
 /* console.log(btnRojo); */
@@ -69,8 +89,11 @@ const btnRojo = document.querySelector(".btn-danger");
 const btnAmarillo = document.querySelector(".btn-warning");
 console.log(btnAmarillo);
 
+const formulario = document.querySelector("#formNombre");
+
 
 btnRojo.addEventListener("click", ocultarParrafo);
 btnAmarillo.addEventListener("click", borrarParrafo);
+formulario.addEventListener("submit", obtenerNombre)
 
 
