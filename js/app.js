@@ -87,6 +87,38 @@ const cambiarTema = () => {
   html.setAttribute("data-bs-theme", temaActual === "dark" ? "light" : "dark");
 }
 
+const crearTarea = (e) => {
+e.preventDefault();
+console.log('Desde la funcion crear tarea');
+
+const inputTarea = document.getElementById("tarea").value.trim();
+console.log((inputTarea));
+
+const divcol = document.createElement('div');
+const divcard = document.createElement('div');
+const divcardBody = document.createElement('div');
+const h5 = document.createElement('h5');
+const p = document.createElement('p');
+divcol.className = "col-md-4 col-lg-3";
+divcard.className = "card h-100";
+divcardBody.className = "card-body";
+h5.className = "card-title";
+h5.textContent = "Tarea ✔";
+p.className = "card-text";
+p.textContent = inputTarea;
+
+const row = document.querySelector(".row-gap-3");
+
+row.appendChild(divcol);
+divcol.appendChild(divcard);
+divcard.appendChild(divcardBody);
+divcardBody.appendChild(h5);
+divcardBody.appendChild(p);
+
+formularioTarea.reset();
+
+}
+
 
 const btnRojo = document.querySelector(".btn-danger");
 /* console.log(btnRojo); */
@@ -99,10 +131,15 @@ const formulario = document.querySelector("#formNombre");
 const btnCambiarTema = document.querySelector(".btn-dark")
 console.log(btnCambiarTema);
 
+const formularioTarea = document.querySelector('#formTareas');
+
+
 
 btnRojo.addEventListener("click", ocultarParrafo);
 btnAmarillo.addEventListener("click", borrarParrafo);
 formulario.addEventListener("submit", obtenerNombre);
 btnCambiarTema.addEventListener("click", cambiarTema);
+formularioTarea.addEventListener("submit", crearTarea);
+
 
 
